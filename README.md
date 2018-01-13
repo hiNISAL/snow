@@ -14,3 +14,6 @@ new Snow();
 
 配置项
 * 见index.html
+
+预览
+https://hinisal.github.io/snow/
