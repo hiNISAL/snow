@@ -33,12 +33,6 @@ function Snow(option) {
   this.hideDuration = 300;                      // 雪花从开始消失到消失的持续时间 默认0.3秒
   this.isOffsetOnTouch = true;                  // 移动端是否根据手势产生偏移 默认是
   this.isPause = true;                          // 当页面失去焦点的时候是否暂停下雪 默认是
-  this.shadow = true;                           // 是否显示阴影
-  this.shadowColor = '#fff';                    // 阴影颜色
-  this.shadowBlur = 10;                         // 阴影模糊半径
-  this.shadowSize = 3;                          // 阴影尺寸
-  this.zIndex = 99999;                          // 曾经控制
-  this.reversionOffset = false;                 // 是否反向偏移
 
   // 进行配置判断 如果存在用户自定义的配置 则覆盖默认配置
   if (option) {
@@ -49,22 +43,15 @@ function Snow(option) {
     this.maxSize = option.maxSize || this.maxSize;
     this.maxImgSize = option.maxImgSize || this.maxImgSize;
     this.hideType = option.hideType || this.hideType;
-    this.shadowColor = option.shadowColor || this.shadowColor;
 
     if (typeof option.speed === 'number') this.speed = option.speed;
-    if (typeof option.randombase === 'number') this.randombase = option.randombase;
-    if (typeof option.stayTime === 'number') this.stayTime = option.stayTime;
-    if (typeof option.hideDuration === 'number') this.hideDuration = option.hideDuration;
-    if (typeof option.shadowBlur === 'number') this.shadowBlur = option.shadowBlur;
-    if (typeof option.shadowSize === 'number') this.shadowSize = option.shadowSize;
-    if (typeof option.zIndex === 'number') this.zIndex = option.zIndex;
-
     if (typeof option.offset === 'boolean') this.isOffset = option.offset;
     if (typeof option.isOffsetOnTouch === 'boolean') this.isOffsetOnTouch = option.isOffsetOnTouch;
     if (typeof option.stay === 'boolean') this.stay = option.stay;
     if (typeof option.isPause === 'boolean') this.isPause = option.isPause;
-    if (typeof option.shadow === 'boolean') this.shadow = option.shadow;
-    if (typeof option.reversionOffset === 'boolean') this.reversionOffset = option.reversionOffset;
+    if (typeof option.randombase === 'number') this.randombase = option.randombase;
+    if (typeof option.stayTime === 'number') this.stayTime = option.stayTime;
+    if (typeof option.hideDuration === 'number') this.hideDuration = option.hideDuration;
 
     if (option.img) this.img = snowImg;
     if (option.imgurl) this.img = option.imgurl;
@@ -120,8 +107,6 @@ Snow.prototype.setOffset = function(xPos) {
   // 判断位置 根据位置赋值给偏移量不同的值
   this.offset = (xPos - 0.5) * (xPos > 0.35 && xPos < 0.65 ? 6 : 4);
 
-  if (this.reversionOffset) this.offset = -this.offset;
-
   // 判断位置 如果处于相对中间的位置 则修改生成雪花时候的位置偏移量为0
   if (xPos > 0.3 && xPos < 0.7) {
     this.createSnowOffset = 0;
@@ -161,15 +146,14 @@ Snow.prototype.createSnow = function () {
       }
       // css设置
       snowFlake.style.position = 'fixed';
-      snowFlake.style.top = -size - (_this.shadow ? _this.shadowSize : 0) + 'px';
+      snowFlake.style.top = -size + 'px';
       snowFlake.style.left = parseInt(Math.random() * _this.clientWidth) + _this.createSnowOffset + 'px';
       snowFlake.style.width = size + 'px';
       snowFlake.style.height = size + 'px';
       _this.img ? '' : snowFlake.style.borderRadius = '100%';
       _this.img ? '' : snowFlake.style.backgroundColor = _this.color;
-      snowFlake.style.zIndex = _this.zIndex.toString();
+      snowFlake.style.zIndex = '99999';
       snowFlake.style.opacity = _this.opacity;
-      _this.img || !_this.shadow ? '' : snowFlake.style.boxShadow = '0 0 ' + _this.shadowBlur + 'px ' + _this.shadowSize +'px ' + _this.shadowColor;
 
       // 生成雪花后给总数递增
       _this.count++;
