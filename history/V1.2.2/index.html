@@ -376,16 +376,16 @@
         hideType: 'fadeout'
       });
     }
-    document.getElementById('pre5').onclick = function () {
+    document.getElementById('pre6').onclick = function () {
       snow.stop();
       if (snow2) {
         snow2.stop();
         snow2 = null;
       }
       snow = new Snow({
-        img: true,
         stay: true,
-        hideType: 'fadeout'
+        hideType: 'fadeout',
+        isPause: false
       });
     }
     document.getElementById('pre7').onclick = function () {
