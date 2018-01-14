@@ -1,9 +1,9 @@
 /*
- * @CreateTime: Jan 14, 2018 4:15 PM
+ * @CreateTime: Jan 13, 2018 9:04 PM
  * @Author: NISAL
  * @Contact: 535964903@qq.com
  * @Last Modified By: NISAL
- * @Last Modified Time: Jan 14, 2018 4:19 PM
+ * @Last Modified Time: Jan 13, 2018 9:04 PM
  * @Description: Modify Here, Please 
  */
 function Snow(option) {
@@ -26,9 +26,6 @@ function Snow(option) {
   this.speed = 10;
   this.maxSize = 4;
   this.maxImgSize = 30;
-  this.hideType = 'scale';  // scale  fadeout
-  this.hideDuration = 300;
-  this.isOffsetOnTouch = true;
 
   if (option) {
     this.color = option.color || this.color;
@@ -37,15 +34,12 @@ function Snow(option) {
     this.limit = option.limit || this.limit;
     this.maxSize = option.maxSize || this.maxSize;
     this.maxImgSize = option.maxImgSize || this.maxImgSize;
-    this.hideType = option.hideType || this.hideType;
 
     if (typeof option.speed === 'number') this.speed = option.speed;
     if (typeof option.offset === 'boolean') this.isOffset = option.offset;
-    if (typeof option.isOffsetOnTouch === 'boolean') this.isOffsetOnTouch = option.isOffsetOnTouch;
     if (typeof option.stay === 'boolean') this.stay = option.stay;
     if (typeof option.randombase === 'number') this.randombase = option.randombase;
     if (typeof option.stayTime === 'number') this.stayTime = option.stayTime;
-    if (typeof option.hideDuration === 'number') this.hideDuration = option.hideDuration;
 
     if (option.imgurl) this.img = option.imgurl;
   }
@@ -62,30 +56,19 @@ function Snow(option) {
   if (this.isOffset) {
     window.addEventListener('mousemove', function (e) {
       var xPos = e.clientX / _this.clientWidth;
-      _this.setOffset(xPos);
-    });
-  }
 
-  if (this.isOffsetOnTouch) {
-    window.addEventListener('touchmove', function(e) {
-      var touch = e.touches[0];
-      var xPos = touch.pageX / _this.clientWidth;
-      _this.setOffset(xPos);
+      _this.offset = (xPos - 0.5) * (xPos > 0.35 && xPos < 0.65 ? 6 : 4);
+
+      if (xPos > 0.3 && xPos < 0.7) {
+        _this.createSnowOffset = 0;
+        return;
+      }
+
+      _this.createSnowOffset = xPos - 0.5 > 0 ? -_this.clientWidth * 0.5 : _this.clientWidth * 0.5;
     });
   }
 
   this.createSnow();
-}
-
-Snow.prototype.setOffset = function(xPos) {
-  this.offset = (xPos - 0.5) * (xPos > 0.35 && xPos < 0.65 ? 6 : 4);
-
-  if (xPos > 0.3 && xPos < 0.7) {
-    this.createSnowOffset = 0;
-    return;
-  }
-
-  this.createSnowOffset = xPos - 0.5 > 0 ? -this.clientWidth * 0.5 : this.clientWidth * 0.5;
 }
 
 Snow.prototype.createSnow = function () {
@@ -136,13 +119,13 @@ Snow.prototype.move = function (ele, thisOffset) {
 
       if (_this.stay) {
         clearInterval(timer);
-        ele.style.transition = 'all ' + (_this.hideDuration / 1000.0) + 's';
+        ele.style.transition = 'all .3s';
         setTimeout(function () {
-          _this.hideType === 'scale' ? ele.style.transform = 'scale(0, 0) rotate(360deg)' : ele.style.opacity = '0';
+          ele.style.transform = 'scale(0, 0) rotate(360deg)';
           setTimeout(function () {
             _this.wrap.removeChild(ele);
             _this.count--;
-          }, _this.hideDuration);
+          }, 300);
         }, _this.stayTime);
         return;
       }

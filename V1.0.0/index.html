@@ -27,7 +27,7 @@
 <body>
   <div id="wrap">
     <header>
-      <h1>SNOW V1.0.2</h1>
+      <h1>SNOW V1.0.0</h1>
       <hr>
     </header>
     <section>
@@ -58,7 +58,7 @@
               <button class="btn btn-primary" id="pre2">预设2 - 雪花留底</button>
               <button class="btn btn-primary" id="pre3">预设3 - 多种雪花</button>
               <button class="btn btn-primary" id="pre4">预设4 - 不随鼠标偏移</button>
-              <button class="btn btn-primary" id="pre5">预设5 - 雪花留底淡出</button>
+              
             </div>
           </div>
         </div>
@@ -182,33 +182,8 @@
                 <br>
                 有效值: 数值类型
               </li>
-              <li>
-                <code>hideType</code>
-                <br>
-                雪花留底后消失的形式
-                <br>
-                默认值: 'scale'
-                <br>
-                有效值: 'scale' 和 'fadeout'
-              </li>
-              <li>
-                <code>hideDuration</code>
-                <br>
-                雪花留底后消失过程持续的时间
-                <br>
-                默认值: 300 (毫秒)
-              </li>
-              <li>
-                <code>isOffsetOnTouch</code>
-                <br>
-                移动端是否会根据手指左右滑动而产生雪花的偏移
-                <br>
-                默认值: true
-                <br>
-                有效值: 布尔值
-              </li>
             </ul>
-            
+
             <p>方法:</p>
             <ul>
               <li>
@@ -227,29 +202,6 @@
         <div class="row">
           <p>版本:</p>
           <ul>
-            <li>
-              <code>2018-01-14</code>
-              <br>
-              V1.0.2
-              <br>
-              <p>更新日志:</p>
-              <ul>
-                <li>
-                  源码增加注释
-                </li>
-                <li>
-                  支持了移动端的偏移
-                </li>
-                <li>
-                  新增三个配置项
-                  <ol style="margin-left: 15px;">
-                    <li>hideType</li>
-                    <li>hideDuration</li>
-                    <li>isOffsetOnTouch</li>
-                  </ol>
-                </li>
-              </ul>
-            </li>
             <li>
               <code>2018-01-13</code>
               <br>
@@ -311,18 +263,6 @@
         img: true,
         stay: true,
         offset: false
-      });
-    }
-    document.getElementById('pre5').onclick = function() {
-      snow.stop();
-      if (snow2) {
-        snow2.stop();
-        snow2 = null;
-      }
-      snow = new Snow({
-        img: true,
-        stay: true,
-        hideType: 'fadeout'
       });
     }
   </script>
