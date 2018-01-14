@@ -3,7 +3,7 @@
  * @Author: NISAL
  * @Contact: 535964903@qq.com
  * @Last Modified By: NISAL
- * @Last Modified Time: Jan 14, 2018 8:00 PM
+ * @Last Modified Time: Jan 14, 2018 7:47 PM
  * @Description: Modify Here, Please 
  */
 function Snow(option) {
@@ -203,9 +203,6 @@ Snow.prototype.move = function (ele, thisOffset) {
 
     // 计算雪花停止移动的位置
     var destoryDistence = _this.stay ? _this.clientHeight - parseInt(ele.style.height) : _this.clientHeight;
-
-    destoryDistence = destoryDistence + (_this.shadow ? _this.shadowSize : 0);
-
     // 如果雪花的位置大于要停止移动的位置
     if (parseInt(ele.style.top) > destoryDistence) {
 

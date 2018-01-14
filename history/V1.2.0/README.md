@@ -1,5 +1,5 @@
 # snow
-javascript下雪插件 V1.2.2
+javascript下雪插件 V1.2.0
 
 
 引入
