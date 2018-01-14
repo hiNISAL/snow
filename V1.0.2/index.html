@@ -27,7 +27,7 @@
 <body>
   <div id="wrap">
     <header>
-      <h1>SNOW V1.0.4</h1>
+      <h1>SNOW V1.0.2</h1>
       <hr>
     </header>
     <section>
@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-md-12">
             <p>
-              一个下雪的插件 自定义选项算多了吧 目前该插件使用只需要引入一个js文件 不需要去动css和js 相对比较友好<br>
+              一个下雪的插件 自定义选项算多了吧 <br>
               如果不打算使用自定义图片或者不打算使用内置的默认雪花图片 可以选择<code>snow-nodefimg.js</code> <br>
               snow-nodefimg.js和snow.js的区别在于 后者包含了一个默认雪花图片的base64字符串 而前者没有 所以文件大小上存在差距<br>
               <a href="https://github.com/hiNISAL/snow" target="_blank">gayhub</a>
@@ -54,12 +54,11 @@
           <div class="col-md-12">
             <div>
               预设:
-              <button class="btn btn-primary" id="pre1">雪花图</button>
-              <button class="btn btn-primary" id="pre2">雪花留底</button>
-              <button class="btn btn-primary" id="pre3">多种雪花</button>
-              <button class="btn btn-primary" id="pre4">不随鼠标偏移</button>
-              <button class="btn btn-primary" id="pre5">雪花留底淡出</button>
-              <button class="btn btn-primary" id="pre6">失去焦点不暂停</button>
+              <button class="btn btn-primary" id="pre1">预设1 - 雪花图</button>
+              <button class="btn btn-primary" id="pre2">预设2 - 雪花留底</button>
+              <button class="btn btn-primary" id="pre3">预设3 - 多种雪花</button>
+              <button class="btn btn-primary" id="pre4">预设4 - 不随鼠标偏移</button>
+              <button class="btn btn-primary" id="pre5">预设5 - 雪花留底淡出</button>
             </div>
           </div>
         </div>
@@ -208,15 +207,6 @@
                 <br>
                 有效值: 布尔值
               </li>
-              <li>
-                <code>isPause</code>
-                <br>
-                页面失去焦点的时候是否暂停下雪
-                <br>
-                默认值: false
-                <br>
-                有效值: 布尔值
-              </li>
             </ul>
             
             <p>方法:</p>
@@ -237,21 +227,6 @@
         <div class="row">
           <p>版本:</p>
           <ul>
-            <li>
-              <code>2018-01-14</code>
-              <br>
-              V1.0.2
-              <br>
-              <p>更新日志:</p>
-              <ul>
-                <li>
-                  新增一个配置项
-                  <ol style="margin-left: 15px;">
-                    <li>isPause</li>
-                  </ol>
-                </li>
-              </ul>
-            </li>
             <li>
               <code>2018-01-14</code>
               <br>
@@ -348,19 +323,6 @@
         img: true,
         stay: true,
         hideType: 'fadeout'
-      });
-    }
-    document.getElementById('pre6').onclick = function() {
-      snow.stop();
-      if (snow2) {
-        snow2.stop();
-        snow2 = null;
-      }
-      snow = new Snow({
-        img: true,
-        stay: true,
-        hideType: 'fadeout',
-        isPause: false
       });
     }
   </script>

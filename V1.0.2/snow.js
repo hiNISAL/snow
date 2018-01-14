@@ -3,7 +3,7 @@
  * @Author: NISAL
  * @Contact: 535964903@qq.com
  * @Last Modified By: NISAL
- * @Last Modified Time: Jan 14, 2018 5:00 PM
+ * @Last Modified Time: Jan 14, 2018 4:34 PM
  * @Description: Modify Here, Please 
  */
 function Snow(option) {
@@ -16,7 +16,6 @@ function Snow(option) {
   this.clientHeight = document.documentElement.clientHeight; // 页面高度
   this.count = 0;                               // 雪花总数
   this.isStop = false;                          // 标志是否要停止下雪
-  this.pause = false;                           // 标志是否暂停
 
   this.color = '#fff';                          // 雪花颜色 默认白色
   this.opacity = 1;                             // 雪花不透明度 默认不透明
@@ -32,7 +31,6 @@ function Snow(option) {
   this.hideType = 'scale';                      // 雪花留底后消失的方式 默认缩小隐藏
   this.hideDuration = 300;                      // 雪花从开始消失到消失的持续时间 默认0.3秒
   this.isOffsetOnTouch = true;                  // 移动端是否根据手势产生偏移 默认是
-  this.isPause = true;                          // 当页面失去焦点的时候是否暂停下雪 默认是
 
   // 进行配置判断 如果存在用户自定义的配置 则覆盖默认配置
   if (option) {
@@ -48,7 +46,6 @@ function Snow(option) {
     if (typeof option.offset === 'boolean') this.isOffset = option.offset;
     if (typeof option.isOffsetOnTouch === 'boolean') this.isOffsetOnTouch = option.isOffsetOnTouch;
     if (typeof option.stay === 'boolean') this.stay = option.stay;
-    if (typeof option.isPause === 'boolean') this.isPause = option.isPause;
     if (typeof option.randombase === 'number') this.randombase = option.randombase;
     if (typeof option.stayTime === 'number') this.stayTime = option.stayTime;
     if (typeof option.hideDuration === 'number') this.hideDuration = option.hideDuration;
@@ -87,16 +84,6 @@ function Snow(option) {
       _this.setOffset(xPos);
     });
   }
-  
-  // 页面获取焦点的时候开始下雪
-  window.addEventListener('focus', function() {
-    _this.pause = false;
-  });
-
-  // 页面失去焦点的时候暂停下雪
-  window.addEventListener('blur', function() {
-    _this.pause = true;
-  });
 
   // 开始下雪
   this.createSnow();
@@ -127,8 +114,6 @@ Snow.prototype.createSnow = function () {
   var timer = setInterval(function () {
     // 判断是否要停止 如果是则清空定时器
     if (_this.isStop) clearInterval(timer);
-    // 判断是否满足暂停条件
-    if (_this.pause && _this.isPause) return;
 
     // 根据每次要创建的随机雪花数量进行循环创建多个雪花
     for (var i = 0; i < (parseInt(Math.random() * _this.num) + 1); i++) {
@@ -179,8 +164,6 @@ Snow.prototype.move = function (ele, thisOffset) {
   var timer = setInterval(function () {
     // 判断是否要停止 如果是则停止定植期
     if (_this.isStop) clearInterval(timer);
-    // 判断是否满足暂停条件
-    if (_this.pause && _this.isPause) return;
     
     // 雪花下坠每次移动1个像素
     ele.style.top = parseFloat(ele.style.top) + 1 + 'px';
