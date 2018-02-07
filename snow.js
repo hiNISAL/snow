@@ -249,7 +249,7 @@ Snow.prototype.createSnow = function () {
       _this.wrap.appendChild(snowFlake);
 
       // 雪花创建之后 调用created钩子
-      _this.created && _this.created(ele);
+      _this.created && _this.created(snowFlake);
 
       // 开始移动
       _this.move(snowFlake, Math.random() * 1.5 - 1);

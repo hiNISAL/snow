@@ -3,7 +3,7 @@
  * @Author: NISAL
  * @Contact: 535964903@qq.com
  * @Last Modified By: NISAL
- * @Last Modified Time: Jan 20, 2018 11:15 PM
+ * @Last Modified Time: Feb 7, 2018 10:10 AM
  * @Description: Modify Here, Please 
  */
 function Snow(option) {
@@ -245,7 +245,7 @@ Snow.prototype.createSnow = function () {
       _this.wrap.appendChild(snowFlake);
 
       // 雪花创建之后 调用created钩子
-      _this.created && _this.created(ele);
+      _this.created && _this.created(snowFlake);
 
       // 开始移动
       _this.move(snowFlake, Math.random() * 1.5 - 1);
