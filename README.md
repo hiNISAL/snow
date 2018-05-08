@@ -9,7 +9,7 @@ javascript下雪插件 V1.6.4
 
 使用
 ```
-new Snow();
+new $Snow();
 ```
 
 配置项
