@@ -65,9 +65,9 @@
             <p></p>
             使用:
             <br>
-            <code>var snow = new Snow();</code>
+            <code>var snow = new $Snow();</code>
             <br>
-            <code>var snow = new Snow({img: true, stay: true, speed: 30});</code>
+            <code>var snow = new $Snow({img: true, stay: true, speed: 30});</code>
             <p></p>
           </div>
           <div class="col-md-12">
@@ -332,6 +332,9 @@
                 <li>
                   错误修复
                 </li>
+                <li>
+                  更改了全局命名空间为 <code>$Snow</code>
+                </li>
               </ul>
             </li>
             <li>
@@ -485,7 +488,7 @@
 
   <script src="./snow.js"></script>
   <script>
-    var snow = new Snow();
+    var snow = new $Snow();
     var snow2 = null;
     document.getElementById('pre1').onclick = function () {
       snow.stop();
@@ -493,7 +496,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true
       });
     }
@@ -503,7 +506,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true
       });
@@ -514,14 +517,14 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         css: {
           animation: 'rotate 3s linear infinite'
         }
       });
-      snow2 = new Snow();
+      snow2 = new $Snow();
     }
     document.getElementById('pre4').onclick = function () {
       snow.stop();
@@ -529,7 +532,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         offset: false
@@ -541,7 +544,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         hideType: 'fadeout'
@@ -553,7 +556,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         stay: true,
         hideType: 'fadeout',
         isPause: false
@@ -565,7 +568,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         hideType: 'fadeout',
@@ -579,7 +582,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         isPause: false,
         shadowSize: 50,
         shadowBlur: 50,
@@ -596,7 +599,7 @@
         num: 5,
         speed: 15
       });
-      snow2 = new Snow({
+      snow2 = new $Snow({
         img: true
       });
     }
@@ -606,7 +609,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         imgurl: ['./imgs/1.jpg', './imgs/2.png', './imgs/3.jpg', './imgs/4.jpg'],
         maxImgSize: 50,
         zIndex: -1,
@@ -619,7 +622,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         color: ['#f00', '#ff0', '#f0f', '#0ff', '#00f']
       });
     }
@@ -629,7 +632,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         randomColor: true
       });
     }
@@ -639,7 +642,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         hideType: 'fadeout',
@@ -657,7 +660,7 @@
         snow2.stop();
         snow2 = null;
       }
-      snow = new Snow({
+      snow = new $Snow({
         img: true,
         stay: true,
         hideType: 'fadeout',
