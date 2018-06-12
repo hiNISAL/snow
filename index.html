@@ -42,7 +42,7 @@
 <body>
   <div id="wrap">
     <header>
-      <h1>SNOW V1.6.4</h1>
+      <h1>SNOW V1.7.0</h1>
       <a href="https://github.com/hiNISAL/snow" target="_blank" class="btn btn-primary">GitHub</a>
       <hr>
     </header>
@@ -53,15 +53,13 @@
             <p>
               一个下雪的插件(只要是想完成掉下来的特效基本就能满足) 自定义选项算多了吧
               <br> 目前该插件使用只需要引入一个js文件 不需要去动css和js 相对比较友好
-              <br> 如果不打算使用自定义图片或者不打算使用内置的默认雪花图片 可以选择
-              <code>snow-nodefimg.js</code>
-              <br> snow-nodefimg.js和snow.js的区别在于 后者包含了一个默认雪花图片的base64字符串 而前者没有 所以文件大小上存在差距
               <br> 当然现有功能不止用于下雪 可以发挥想象 使用场景可以很广
               <br>
             </p>
             引用:
             <br>
             <code>&lt;scrip src=&quot;snow.js&quot;&gt;&lt;/scrip&gt;</code>
+            <p>(支持多种模块化规范)</p>
             <p></p>
             使用:
             <br>
@@ -86,9 +84,6 @@
               <button class="btn btn-primary" id="pre11">随机rgb色</button>
               <button class="btn btn-primary" id="pre12">自定义css - 雪花旋转动画</button>
               <button class="btn btn-primary" id="pre13">生命周期(输出在控制台)</button>
-            </div>
-            <div>
-              使用授权: 保留署名 爱咋咋用
             </div>
           </div>
         </div>
@@ -324,6 +319,23 @@
           <p>版本:</p>
           <ul>
             <li>
+              <code>2018-06-12</code>
+              <br> V1.7.0
+              <br>
+              <p>更新日志:</p>
+              <ul>
+                <li>
+                  修改了项目目录 计划重构
+                </li>
+                <li>
+                  <code>rollup</code> 进行打包构建
+                </li>
+                <li>
+                  去掉了默认图片
+                </li>
+              </ul>
+            </li>
+            <li>
               <code>2018-02-07</code>
               <br> V1.6.4
               <br>
@@ -486,7 +498,7 @@
     </section>
   </div>
 
-  <script src="./src/snow.js"></script>
+  <script src="./release/show.js"></script>
   <script>
     var snow = new $Snow();
     var snow2 = null;

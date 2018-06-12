@@ -8,8 +8,9 @@ const config = {
   output: {
     file: 'src/snow.js',
     format: 'umd',
-    name: '$snow'
-  }
+    name: '$Snow'
+  },
+  plugins: []
 };
 
 if (isDev) {

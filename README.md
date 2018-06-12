@@ -1,15 +1,22 @@
 # snow
-javascript下雪插件 V1.6.4
+javascript下雪插件
 
+安装
 
-引入
-```
-<script src="./snow.js"></script>
-```
+`npm i any-snow -S`
 
 使用
 ```
-new $Snow();
+// browser
+<script src="./snow.js"></script>
+
+// commonjs
+const $Snow = require('any-snow');
+new $Snow(options);
+
+// es module
+import $Snow from '$Snow';
+new $Snow(options);
 ```
 
 配置项

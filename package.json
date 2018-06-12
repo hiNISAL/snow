@@ -1,6 +1,6 @@
 {
   "name": "any-snow",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "dropable elements plugin",
   "main": "index.js",
   "scripts": {
