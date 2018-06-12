@@ -486,7 +486,7 @@
     </section>
   </div>
 
-  <script src="./snow.js"></script>
+  <script src="./src/snow.js"></script>
   <script>
     var snow = new $Snow();
     var snow2 = null;
@@ -497,9 +497,11 @@
         snow2 = null;
       }
       snow = new $Snow({
-        img: true
+        img: true,
+        imgurl: './imgs/snow.png'
       });
     }
+    
     document.getElementById('pre2').onclick = function () {
       snow.stop();
       if (snow2) {
@@ -508,7 +510,8 @@
       }
       snow = new $Snow({
         img: true,
-        stay: true
+        stay: true,
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre3').onclick = function () {
@@ -520,6 +523,7 @@
       snow = new $Snow({
         img: true,
         stay: true,
+        imgurl: './imgs/snow.png',
         css: {
           animation: 'rotate 3s linear infinite'
         }
@@ -535,7 +539,8 @@
       snow = new $Snow({
         img: true,
         stay: true,
-        offset: false
+        offset: false,
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre5').onclick = function () {
@@ -547,7 +552,8 @@
       snow = new $Snow({
         img: true,
         stay: true,
-        hideType: 'fadeout'
+        hideType: 'fadeout',
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre6').onclick = function () {
@@ -573,7 +579,8 @@
         stay: true,
         hideType: 'fadeout',
         isPause: false,
-        reversionOffset: true
+        reversionOffset: true,
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre8').onclick = function () {
@@ -600,7 +607,8 @@
         speed: 15
       });
       snow2 = new $Snow({
-        img: true
+        img: true,
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre9').onclick = function () {
@@ -651,7 +659,8 @@
         },
         stayedcss: {
           animationPlayState: 'paused',
-        }
+        },
+        imgurl: './imgs/snow.png'
       });
     }
     document.getElementById('pre13').onclick = function () {
@@ -664,6 +673,7 @@
         img: true,
         stay: true,
         hideType: 'fadeout',
+        imgurl: './imgs/snow.png',
         css: {
           animation: 'rotate 3s linear infinite'
         },

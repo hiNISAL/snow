@@ -1,0 +1,30 @@
+{
+  "name": "any-snow",
+  "version": "1.0.0",
+  "description": "dropable elements plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:minify": "cross-env NODE_ENV=production MINIFY=true rollup -c",
+    "build:std": "cross-env NODE_ENV=production MINIFY=false rollup -c",
+    "build": "npm run build:minify && npm run build:std"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiNISAL/snow.git"
+  },
+  "keywords": [
+    "snow",
+    "animate"
+  ],
+  "author": "NISAL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hiNISAL/snow/issues"
+  },
+  "homepage": "https://github.com/hiNISAL/snow#readme",
+  "devDependencies": {
+    "cross-env": "^5.1.6",
+    "rollup-plugin-uglify": "^4.0.0"
+  }
+}
