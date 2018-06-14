@@ -9,6 +9,7 @@ javascript下雪插件
 ```
 // browser
 <script src="./snow.js"></script>
+new $Snow(options);
 
 // commonjs
 const $Snow = require('any-snow');

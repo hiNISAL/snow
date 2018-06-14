@@ -105,6 +105,10 @@
       if (option.destoryed) this.destoryed = option.destoryed;
     }
 
+    this.wrap.style.height = 0;
+    this.wrap.style.width = 0;
+    this.wrap.style.background = 'transparent';
+
     // 将容器插入到body末尾
     document.body.appendChild(this.wrap);
 

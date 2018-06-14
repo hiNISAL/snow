@@ -1,8 +1,8 @@
 {
   "name": "any-snow",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "description": "dropable elements plugin",
-  "main": "index.js",
+  "main": "release/snow.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:minify": "cross-env NODE_ENV=production MINIFY=true rollup -c",
